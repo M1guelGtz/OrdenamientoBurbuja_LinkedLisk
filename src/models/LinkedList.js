@@ -38,10 +38,6 @@ export class LinkedList {
 
     push(item){
         const node = new Node(item, this.#head, null)
-        /*if (this.isEmpty()) {
-            this.#tail = node;
-            return;
-        }*/
         if(this.#head){
             node.next = this.#head
             this.#head.prev = node 
@@ -71,34 +67,6 @@ export class LinkedList {
     isEmpty(){
         return this.#head === null
     }
-    orden(){
-        if (this.#head != null) {
-            let temp
-            let valor = 1
-            let actual = this.#head
-            let siguiente = actual.next
-            while(valor < this.#count){
-                let valor2 = 0
-                console.log("vuelta #" + valor)
-                while(siguiente != null){
-                    if(actual.getData().getNombre().charCodeAt(0) < siguiente.getData().getNombre().charCodeAt(0)){
-                        valor2++
-                        temp = actual.getData().getNombre()
-                        actual.getData().getNombre() = siguiente.getData().getNombre()
-                        siguiente.getData().getNombre()= temp
-                        console.log(valor2)
-                    }
-                    siguiente = siguiente.next
-                    
-                }
-                actual = actual.next
-                valor2=0
-                valor++
-            }
-        }else{
-            console.log("Lista No inicializada")
-        }
-    }
     ordenarDeBurbuja(){
         let valor = 0, valor2 = 0
         for (let i = 1; i < this.size();i++){
@@ -121,18 +89,4 @@ export class LinkedList {
             }
         }            
     }
-    ordenamientoBurbuja(){
-        let auxiliar = this.#head
-        let actual = this.#head.next
-        for (let i = 1 ; i < this.size() ; i++){
-            for (let j = 0; j < this.size()-1 ; j++){
-                if (auxiliar.getData().getNombre().charCodeAt(0) > actual.getData().getNombre().charCodeAt(0)){
-                    let aux = this.getElementAt(j).getData()
-                    this.getElementAt(j).next = this.getElementAt(j+1).getData()
-                    this.getElementAt(j+1).getData = aux   
-                }
-            }
-        }
-    }
-    
 }
