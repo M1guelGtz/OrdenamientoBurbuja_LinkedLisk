@@ -67,12 +67,13 @@ export class LinkedList {
     isEmpty(){
         return this.#head === null
     }
+    
     ordenarDeBurbuja(){
         let valor = 0, valor2 = 0
         for (let i = 1; i < this.size();i++){
             for (let j = 0;j<this.size()-i ;j++){
                 if(this.getElementAt(j) && this.getElementAt(j+1)){
-                    if (this.getElementAt(j).getData().getNombre().charAt(0) > this.getElementAt(j+1).getData().getNombre().charAt(0)){
+                    if (this.getElementAt(j).getData().getNombre().charAt(0).toLowerCase() > this.getElementAt(j+1).getData().getNombre().charAt(0).toLowerCase()){
                         if(j == 0){
                             let aux = this.#head, aux2  = this.getElementAt(j).next, aux3 = this.getElementAt(j+1).next
                             this.#head = aux2
@@ -89,4 +90,6 @@ export class LinkedList {
             }
         }            
     }
+    
+    
 }
